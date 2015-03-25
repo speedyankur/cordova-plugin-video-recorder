@@ -76,7 +76,7 @@ public class VideoRecorder extends CordovaPlugin{
                 break;
 
             case MSG_UPDATE_TIMER:
-                runOnUiThread(new Runnable(){
+                cordova.getActivity().runOnUiThread(new Runnable(){
                     @Override
                     public void run(){  
                         tvTextView.setText("0:"+ String.format("%02d",timer.getElapsedTimeSecs()));
@@ -95,7 +95,7 @@ public class VideoRecorder extends CordovaPlugin{
             case MSG_STOP_TIMER:
                 mHandler.removeMessages(MSG_UPDATE_TIMER); // no more updates.
                 timer.stop();//stop timer
-                runOnUiThread(new Runnable(){
+                cordova.getActivity().runOnUiThread(new Runnable(){
                     @Override
                     public void run(){  
                         tvTextView.setText("0:"+ String.format("%02d",timer.getElapsedTimeSecs()));
