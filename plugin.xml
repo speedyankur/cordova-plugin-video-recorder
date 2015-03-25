@@ -29,6 +29,6 @@
         <source-file src="src/android/CameraPreviewer.java" target-dir="src/com/homeinspectorpro/video/recorder" />
         <source-file src="src/android/InAppDialog.java" target-dir="src/com/homeinspectorpro/video/recorder" />
         <source-file src="src/android/Stopwatch.java" target-dir="src/com/homeinspectorpro/video/recorder" />
-        <source-file src="src/android/ViewRecorder.java" target-dir="src/com/homeinspectorpro/video/recorder" />
+        <source-file src="src/android/VideoRecorder.java" target-dir="src/com/homeinspectorpro/video/recorder" />
     </platform>
 </plugin>
