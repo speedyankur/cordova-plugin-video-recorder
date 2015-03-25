@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android" id="com.homeinspectorpro.video.recorder" version="0.1.0">
+    <name>VideoRecorder</name>
+    <description>This is a cordova plugin to record videos in low resolutions for android devices to transport them over network</description>
+    <repo>https://github.com/speedyankur/cordova-plugin-video-recorder</repo>
+    <keywords>VideoRecorder, android, lowresolution video, video</keywords>
+    <license>Apache 2.0</license>
+    <author>Ankur Garha</author>
+    <engines>
+        <engine name="cordova" version=">=3.0.0" />
+    </engines>
+    <!-- interface -->
+    <js-module src="www/video-recorder.js" name="VideoRecorder">
+        <clobbers target="plugin.videorecorder" />
+    </js-module>
+    <!-- android -->
+    <platform name="android">
+        <config-file target="res/xml/config.xml" parent="/*">
+            <feature name="VideoRecorderPlugin">
+                <param name="android-package" value="com.homeinspectorpro.video.recorder.VideoRecorder" />
+            </feature>
+        </config-file>
+        <config-file target="AndroidManifest.xml" parent="application">
+            <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+            <uses-permission android:name="android.permission.RECORD_AUDIO" />
+            <uses-permission android:name="android.permission.RECORD_VIDEO" />
+            <uses-permission android:name="android.permission.CAMERA" />
+        </config-file>
+        <source-file src="src/android/CameraPreviewer.java" target-dir="src/com/homeinspectorpro/video/recorder" />
+        <source-file src="src/android/InAppDialog.java" target-dir="src/com/homeinspectorpro/video/recorder" />
+        <source-file src="src/android/Stopwatch.java" target-dir="src/com/homeinspectorpro/video/recorder" />
+        <source-file src="src/android/ViewRecorder.java" target-dir="src/com/homeinspectorpro/video/recorder" />
+    </platform>
+</plugin>
