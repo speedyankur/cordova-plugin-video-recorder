@@ -76,7 +76,12 @@ public class VideoRecorder extends CordovaPlugin{
                 break;
 
             case MSG_UPDATE_TIMER:
-                tvTextView.setText("0:"+ String.format("%02d",timer.getElapsedTimeSecs()));
+                runOnUiThread(new Runnable(){
+                    @Override
+                    public void run(){  
+                        tvTextView.setText("0:"+ String.format("%02d",timer.getElapsedTimeSecs()));
+                    }
+                });                
                 if(timer.getElapsedTimeSecs()>=15){
                 	mHandler.removeMessages(MSG_UPDATE_TIMER); // no more updates.
                     timer.stop();//stop timer  
@@ -90,7 +95,13 @@ public class VideoRecorder extends CordovaPlugin{
             case MSG_STOP_TIMER:
                 mHandler.removeMessages(MSG_UPDATE_TIMER); // no more updates.
                 timer.stop();//stop timer
-                tvTextView.setText("0:"+ String.format("%02d",timer.getElapsedTimeSecs()));
+                runOnUiThread(new Runnable(){
+                    @Override
+                    public void run(){  
+                        tvTextView.setText("0:"+ String.format("%02d",timer.getElapsedTimeSecs()));
+                    }
+                });                 
+                
                 break;
             default:
                 break;
