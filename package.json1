@@ -7,11 +7,9 @@
     "repo": "https://github.com/speedyankur/cordova-plugin-video-recorder",
     "keywords": [
         "VideoRecorder",
-        "android",
-        "lowresolution video",
-        "video"
+        "lowresolution video"
     ],
-    "platforms": [
+    "platforms": [        
         "android"
     ],
     "engines": [
